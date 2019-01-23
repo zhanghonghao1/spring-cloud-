@@ -1,0 +1,20 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: ceshi-parent-feigntwo #微服务名称，在单个微服务的时候没用，在多个服务调用时候有用！！
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka  # 注册到刚才那台Eureka Server地址
+  instance:
+    prefer-ip-address: true # 在生产环境必须使用的配置（在本地可以不用配置)
+feign.hystrix.enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"

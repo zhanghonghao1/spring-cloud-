@@ -1,0 +1,19 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: ceshi-parent-zuul #微服务名称，在单个微服务的时候没用，在多个服务调用时候有用！！
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka  # 注册到刚才那台Eureka Server地址
+  instance:
+    prefer-ip-address: true # 在生产环境必须使用的配置（在本地可以不用配置)
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: ceshi-parent-ribbon
+    api-b:
+      path: /api-b/**
+      serviceId: ceshi-parent-feign
