@@ -3,9 +3,19 @@ server:
 spring:
   application:
     name: ceshi-parent-client #微服务名称，在单个微服务的时候没用，在多个服务调用时候有用！！
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+  redis:
+    host: localhost
+    port: 6379
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:6869/eureka  # 注册到刚才那台Eureka Server地址
+      defaultZone: http://127.0.0.1:6868/eureka  # 注册到刚才那台Eureka Server地址
   instance:
     prefer-ip-address: true # 在生产环境必须使用的配置（在本地可以
+mybatis:
+  type-aliases-package: com.anjubao.ceshiparentserver.entity # 指定实体类路径
